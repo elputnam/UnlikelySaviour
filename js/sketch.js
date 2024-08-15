@@ -13,12 +13,18 @@ let bnum = 1;
 let blnum = 1;
 let Tnum = 1;
 let hue = 0;
-let hueTri = 180
+let hueTri = 180;
+
+//CCapture
+// var capture = false; // default is to not capture frames, can be changed with button in browser
+// var capturer = new CCapture({
+//   format:'webm', 
+//   workersPath: 'js/',
+//   framerate: 5
+// });
 
 function preload(){
   for (let i = 0; i < 2; i++){
-    
-   
     Terra[i] = loadImage('images/Terra'+i+'.png');
     wires[i] = loadImage('images/wire'+i+'.png')
   }
@@ -43,6 +49,9 @@ function setup() {
 }
 
 function draw() {
+  //     if (frameCount==1){
+  //   capturer.start();
+  // };
   background(hueTri, 100, 100);
   
   //base
@@ -107,6 +116,12 @@ function draw() {
     //image(Terra[Tnum], random(10, 30), 0);
     blend(Terra[Tnum], 0, 0, width, height, random(10, 30), 0, width, height, EXCLUSION);
     pop();
+
+  //     capturer.capture(document.getElementById('defaultCanvas0'));  
+  // if (frameCount==3000){
+  //   save_record();
+  // }
+  // print(frameCount);
 }
 
 
@@ -114,3 +129,7 @@ function mousePressed(){
   let fs = fullscreen();
   fullscreen(!fs);
 }
+
+// function save_record() {
+//   capturer.save();
+// }
